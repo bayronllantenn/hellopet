@@ -1,0 +1,44 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Pago Rechazado | HelloPet{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-5 text-center">
+
+            <div class="mb-4">
+                <h2 class="text-danger mb-2">Pago no aprobado</h2>
+                <p class="text-muted mb-0">
+                    El pago no fue aprobado, por lo tanto la cita no quedó confirmada.
+                </p>
+            </div>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+
+                   {% if solicitud %}
+                    <p><strong>Cliente:</strong> {{ solicitud.nombre }} {{ solicitud.apellido }}</p>
+                    <p><strong>Mascota:</strong> {{ solicitud.nombre_mascota }}</p>
+                    <p><strong>Estado cita:</strong> {{ solicitud.estado }}</p>
+                    <p><strong>Estado pago:</strong> {{ solicitud.estado_pago }}</p>
+                {% else %}
+                    <p class="text-muted">
+                        No se pudo asociar el pago a una solicitud específica.
+                    </p>
+                {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

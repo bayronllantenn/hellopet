@@ -16,9 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import index , agendar_cita
+from .views import index , agendar_cita , reserva_exitosa, reserva_fallida,iniciar_pago_webpay,retorno_webpay
 urlpatterns = [
     path('', index, name='index'),
     path('agendar/', agendar_cita, name='agendar_cita'),
-]
+
+    # WEBPAY
+    path('webpay/iniciar/<int:id>/', iniciar_pago_webpay, name='iniciar_pago_webpay'),
+    path('webpay/retorno/', retorno_webpay, name='retorno_webpay'),
+    path('reserva-exitosa/<int:id>/', reserva_exitosa, name='reserva_exitosa'),
+    path('reserva-fallida/', reserva_fallida, name='reserva_fallida'),
+    path('reserva-fallida/<int:id>/', reserva_fallida, name='reserva_fallida_id'),
+    ]
 
