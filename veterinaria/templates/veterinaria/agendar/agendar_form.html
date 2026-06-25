@@ -1,0 +1,62 @@
+{% extends 'veterinaria/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Agendar Cita | HelloPet{% endblock %}
+
+{% block content %}
+
+<div class="agendar-wrapper">
+
+    <div class="agendar-card">
+
+        <div class="text-center mb-4">
+            <h1 class="agendar-title">Agendar Cita</h1>
+            <p class="agendar-text">
+                Completa tus datos y nos contactaremos contigo para confirmar la disponibilidad.
+            </p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <h5 class="form-section-title">Datos del cliente</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form.nombre|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.apellido|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form.email|as_crispy_field }}
+                </div>
+
+                <div class="col-md-6">
+                    {{ form.telefono|as_crispy_field }}
+                </div>
+            </div>
+
+            <h5 class="form-section-title mt-3">Datos de la mascota</h5>
+
+            {{ form.nombre_mascota|as_crispy_field }}
+
+            <h5 class="form-section-title mt-3">Datos de la atención</h5>
+            
+            {{ form.tipo_consulta|as_crispy_field }}
+            <p class='text-muted'>Horario disponible desde las 9:00AM hasta las 20:00PM</p>
+            {{ form.fecha_hora|as_crispy_field }}
+            {{ form.observaciones|as_crispy_field }}
+
+            <button type="submit" class="btn btn-success w-100 mt-3">
+                Solicitar Cita
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

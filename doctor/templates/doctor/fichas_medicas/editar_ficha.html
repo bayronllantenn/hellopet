@@ -1,0 +1,74 @@
+{% extends 'veterinaria/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Editar Ficha Médica{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'recepcion/css/ficha_medica/editar_ficha_medica.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="form-ficha-page">
+
+    <div class="form-ficha-header">
+        <h2>Editar Ficha Médica</h2>
+        <p>Modifica la información registrada de la atención veterinaria.</p>
+    </div>
+
+    <div class="form-ficha-info">
+        <h5>{{ solicitud.nombre_mascota }}</h5>
+        <p>
+            Propietario: {{ solicitud.nombre }} {{ solicitud.apellido }}
+        </p>
+        <p>
+            Consulta: {{ solicitud.tipo_consulta }}
+        </p>
+    </div>
+
+    <div class="form-ficha-card">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form.especie|as_crispy_field }}
+                </div>
+                <div class="col-md-6">
+                    {{ form.raza|as_crispy_field }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    {{ form.sexo|as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.edad_mascota|as_crispy_field }}
+                </div>
+                <div class="col-md-4">
+                    {{ form.peso|as_crispy_field }}
+                </div>
+            </div>
+
+            {{ form.motivo_consulta|as_crispy_field }}
+            {{ form.diagnostico|as_crispy_field }}
+            {{ form.tratamiento|as_crispy_field }}
+            {{ form.observaciones|as_crispy_field }}
+
+            <div class="form-ficha-actions">
+                <a href="{% url 'listar_ficha' %}" class="form-ficha-btn form-ficha-btn-light">
+                    Cancelar
+                </a>
+
+                <button type="submit" class="form-ficha-btn form-ficha-btn-dark">
+                    Guardar cambios
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

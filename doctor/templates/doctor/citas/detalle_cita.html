@@ -1,0 +1,132 @@
+{% extends "veterinaria/base.html" %}
+{% load static %}
+
+{% block title %}Detalle de la Cita | HelloPet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'doctor/css/detalle_solicitud.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="detalle-cita-page">
+
+    <div class="detalle-cita-back">
+        <a href="{% url 'listar_citas' %}" class="btn-back-uiverse">
+            <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+                <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
+            </svg>
+            <span>Volver</span>
+        </a>
+    </div>
+
+    <div class="detalle-cita-header">
+        <div>
+            <h2>Detalle de la Cita</h2>
+            <p>Información completa de la cita asignada.</p>
+        </div>
+
+        <span class="detalle-cita-estado">
+            {{ cita.estado }}
+        </span>
+    </div>
+
+    <div class="detalle-cita-grid">
+
+        <div class="detalle-cita-card">
+            <div class="detalle-cita-card-header">
+                Información del Cliente
+            </div>
+
+            <div class="detalle-cita-card-body">
+                <div class="detalle-cita-item">
+                    <span>Nombre</span>
+                    <strong>{{ cita.nombre }}</strong>
+                </div>
+
+                <div class="detalle-cita-item">
+                    <span>Apellido</span>
+                    <strong>{{ cita.apellido }}</strong>
+                </div>
+
+                <div class="detalle-cita-item">
+                    <span>Teléfono</span>
+                    <strong>{{ cita.telefono }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalle-cita-card">
+            <div class="detalle-cita-card-header">
+                Información de la Mascota
+            </div>
+
+            <div class="detalle-cita-card-body">
+                <div class="detalle-cita-item">
+                    <span>Nombre mascota</span>
+                    <strong>{{ cita.nombre_mascota }}</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="detalle-cita-card">
+        <div class="detalle-cita-card-header">
+            Información de la Cita
+        </div>
+
+        <div class="detalle-cita-card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="detalle-cita-item">
+                        <span>Fecha y hora</span>
+                        <strong>{{ cita.fecha_hora|date:"d/m/Y H:i" }}</strong>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detalle-cita-item">
+                        <span>Tipo de consulta</span>
+                        <strong>{{ cita.tipo_consulta.nombre }}</strong>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detalle-cita-item">
+                        <span>Veterinario</span>
+                        {% if cita.veterinario %}
+                            <strong>{{ cita.veterinario.first_name }} {{ cita.veterinario.last_name }}</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin asignar</strong>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="detalle-cita-item">
+                        <span>Estado</span>
+                        <strong>{{ cita.estado }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="detalle-cita-card detalle-cita-observacion-card">
+        <div class="detalle-cita-card-header">
+            Observaciones
+        </div>
+
+        <div class="detalle-cita-observacion">
+            {% if cita.observaciones %}
+                {{ cita.observaciones }}
+            {% else %}
+                <span class="text-muted">Sin observaciones.</span>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

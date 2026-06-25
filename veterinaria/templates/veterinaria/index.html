@@ -1,0 +1,346 @@
+{% extends 'veterinaria/base.html' %}
+{% load static %}
+
+{% block title %}Inicio | HelloPet{% endblock %}
+
+{% block content %}
+
+<section class="container pt-2 pb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <span class="badge bg-success mb-3 px-3 py-2">
+                Clínica Veterinaria
+            </span>
+            <h1 class="display-4 fw-bold text-primary mb-3">
+                Bienvenido a HelloPet
+            </h1>
+            <p class="lead text-muted mb-4">
+                Nos preocupamos por la salud y bienestar de tus mascotas.
+                Agenda una cita de forma rápida y recibe atención profesional
+                para perros y gatos.
+            </p>
+            <a href="{% url 'agendar_cita' %}" class="btn btn-success btn-lg px-4">
+                <i class="bi bi-calendar-check"></i>
+                Solicitar cita
+            </a>
+        </div>
+        <div class="col-lg-6 text-center">
+            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800"
+                 class="img-fluid rounded-4 shadow"
+                 alt="Mascotas">
+        </div>
+    </div>
+    
+</section>
+
+<section class="container mb-5">
+    <div class="row g-4 text-center">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body py-4">
+                    <div class="bg-success-subtle text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width:80px; height:80px;">
+                        <i class="bi bi-heart-fill fs-2"></i>
+                    </div>
+
+                    <h2 class="fw-bold text-success mb-1">500+</h2>
+                    <p class="text-muted mb-0">Mascotas Atendidas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body py-4">
+                    <div class="bg-primary-subtle text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width:80px; height:80px;">
+                        <i class="bi bi-award-fill fs-2"></i>
+                    </div>
+
+                    <h2 class="fw-bold text-primary mb-1">10+</h2>
+                    <p class="text-muted mb-0">Años de Experiencia</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body py-4">
+                    <div class="bg-danger-subtle text-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width:80px; height:80px;">
+                        <i class="bi bi-hospital-fill fs-2"></i>
+                    </div>
+
+                    <h2 class="fw-bold text-danger mb-1">24/7</h2>
+                    <p class="text-muted mb-0">Urgencias</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body py-4">
+                    <div class="bg-warning-subtle text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width:80px; height:80px;">
+                        <i class="bi bi-star-fill fs-2"></i>
+                    </div>
+
+                    <h2 class="fw-bold text-warning mb-1">100%</h2>
+                    <p class="text-muted mb-0">Compromiso</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Nuestros Servicios</h2>
+        <p class="text-muted">
+            Atención veterinaria integral para el bienestar de tus mascotas.
+        </p>
+    </div>
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow h-100">
+                <img src="{% static 'veterinaria/img/consulta.jpg' %}"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center shadow"
+                         style="width:70px;height:70px;margin-top:-35px;">
+                        <i class="bi bi-heart-pulse-fill text-white fs-3"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Consulta Veterinaria</h5>
+                    <p class="text-muted">
+                        Evaluaciones médicas y controles preventivos.
+                    </p>
+                </div>
+            </div>
+        </div>  
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow h-100">
+                <img src="{% static 'veterinaria/img/estelirizacion.jpg' %}"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center shadow"
+                         style="width:70px;height:70px;margin-top:-35px;">
+                        <i class="bi bi-shield-check text-white fs-3"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Esterilizaciones</h5>
+                    <p class="text-muted">
+                        Procedimientos seguros para el control de la población animal.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow h-100">
+                <img src="{% static 'veterinaria/img/vacunas.webp' %}"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+                <div class="text-center">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center shadow"
+                         style="width:70px;height:70px;margin-top:-35px;">
+                        <i class="bi bi-bandaid-fill text-white fs-3"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Vacunas Perros y Gatos</h5>
+                    <p class="text-muted">
+                        Programas de vacunación adaptados para cada mascota.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card border-0 shadow h-100">
+                <img src="{% static 'veterinaria/img/urgencia.jpg' %}"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+                <div class="text-center">
+                    <div class="bg-danger rounded-circle d-inline-flex align-items-center justify-content-center shadow"
+                         style="width:70px;height:70px;margin-top:-35px;">
+                        <i class="bi bi-hospital-fill text-white fs-3"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Urgencias</h5>
+                    <p class="text-muted">
+                        Atención inmediata para emergencias veterinarias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="container mb-5">
+    <div class="row g-4">
+
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-success-subtle text-success rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                             style="width:65px; height:65px;">
+                            <i class="bi bi-clock-fill fs-3"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="fw-bold mb-0">Horarios de Atención</h4>
+                            <small class="text-muted">
+                                Disponibilidad semanal
+                            </small>
+                        </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between px-0">
+                            <span>Lunes a Sábado</span>
+                            <span class="fw-semibold">09:00 - 20:00</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between px-0">
+                            <span>Domingo</span>
+                            <span class="badge bg-danger rounded-pill">
+                                Solo urgencias
+                            </span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-sm rounded-4">
+                <div class="card-body p-4">
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-primary-subtle text-primary rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                             style="width:65px; height:65px;">
+                            <i class="bi bi-geo-alt-fill fs-3"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="fw-bold mb-0">Contacto</h4>
+                            <small class="text-muted">
+                                Estamos para ayudarte
+                            </small>
+                        </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item px-0">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            Av. Sta. María 1020265, Arica
+                        </li>
+
+                        <li class="list-group-item px-0">
+                            <i class="bi bi-telephone text-success me-2"></i>
+                            +56 9 1234 5678
+                        </li>
+
+                        <li class="list-group-item px-0">
+                            <i class="bi bi-envelope text-danger me-2"></i>
+                            veterinaria@hellopet.cl
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container mb-5">
+    <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body p-5">
+            <h2 class="text-center fw-bold text-primary mb-5">
+                ¿Cómo funciona?
+            </h2>
+
+            <div class="row text-center g-4">
+
+                <div class="col-md-3">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center fw-bold shadow"
+                         style="width:70px;height:70px;">
+                        1
+                    </div>
+                    <h5 class="mt-3">Solicita tu cita</h5>
+                    <p class="text-muted small">
+                        Completa el formulario de agendamiento.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center fw-bold shadow"
+                         style="width:70px;height:70px;">
+                        2
+                    </div>
+                    <h5 class="mt-3">Recepción revisa</h5>
+                    <p class="text-muted small">
+                        Validamos la disponibilidad solicitada.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="bg-warning text-dark rounded-circle d-inline-flex align-items-center justify-content-center fw-bold shadow"
+                         style="width:70px;height:70px;">
+                        3
+                    </div>
+                    <h5 class="mt-3">Asignación Veterinario</h5>
+                    <p class="text-muted small">
+                        Se asigna el profesional disponible.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="bg-danger text-white rounded-circle d-inline-flex align-items-center justify-content-center fw-bold shadow"
+                         style="width:70px;height:70px;">
+                        4
+                    </div>
+                    <h5 class="mt-3">Confirmación</h5>
+                    <p class="text-muted small">
+                        Recibes la confirmación de tu cita.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    
+<section class="container mb-5">
+    <div class="bg-primary text-white rounded-4 p-5 text-center shadow">
+        <h2 class="mb-3">
+            Tu mascota merece la mejor atención
+        </h2>
+        <p class="mb-4">
+            Agenda una cita hoy mismo y recibe atención veterinaria profesional.
+        </p>
+        <a href="{% url 'agendar_cita' %}" class="btn btn-light btn-lg">
+            Solicitar cita
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

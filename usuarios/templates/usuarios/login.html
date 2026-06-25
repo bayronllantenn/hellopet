@@ -1,0 +1,36 @@
+{% extends "veterinaria/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Iniciar Sesión | HelloPet{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+    <div class="login-card">
+
+        <div class="login-header">
+            <h1>Iniciar Sesión</h1>
+            <p>Accede al sistema de gestión veterinaria HelloPet.</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="login-form">
+                {{ form|crispy }}
+            </div>
+
+            <button type="submit" class="login-btn">
+                Iniciar Sesión
+            </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock content %}

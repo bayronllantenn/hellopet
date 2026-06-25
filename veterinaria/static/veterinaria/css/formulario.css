@@ -1,0 +1,66 @@
+body {
+    background: #f6f1eb;
+}
+
+.agendar-wrapper {
+    min-height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+.agendar-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.agendar-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f3f5b;
+}
+
+.agendar-text {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.form-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1f3f5b;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+}
+
+.agendar-card label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #243447;
+}
+
+.agendar-card .form-control,
+.agendar-card .form-select {
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+}
+
+.agendar-card textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.agendar-card .btn-success {
+    border-radius: 12px;
+    padding: 10px;
+    font-weight: 600;
+}

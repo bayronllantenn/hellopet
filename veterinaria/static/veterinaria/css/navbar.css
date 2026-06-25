@@ -1,0 +1,261 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ---- Reset / base ---- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --hp-navy:  #1B3A5C;
+    --hp-green: #4A8C6F;
+    --hp-green-dark: #3a7059;
+    --hp-sand:  #F7F3EE;
+    --hp-white: #FFFFFF;
+    --hp-ink:   #2D2D2D;
+    --hp-muted: #6B7280;
+    --hp-border:#E2DDD7;
+    --hp-danger:#C0392B;
+    --radius:   10px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,.07);
+    --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+    --transition: 0.22s ease;
+}
+
+body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: var(--hp-sand);
+    color: var(--hp-ink);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    background-color: var(--hp-navy) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,.18);
+    padding-top: .85rem;
+    padding-bottom: .85rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -.3px;
+    color: #ffffff !important;
+}
+
+.navbar-brand span {
+    color: var(--hp-green);
+}
+
+.nav-link {
+    color: rgba(255,255,255,.82) !important;
+    font-weight: 500;
+    font-size: .95rem;
+    padding: .45rem .75rem !important;
+    border-radius: 6px;
+    transition: color var(--transition), background var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,.10);
+}
+
+.hp-urgency {
+    font-size: .82rem;
+    font-weight: 700;
+    color: #f87171;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border: 1.5px solid #f87171;
+    padding: .3rem .7rem;
+    border-radius: 20px;
+}
+
+/* ---- Hero / jumbotron ---- */
+.hp-hero {
+    background-color: var(--hp-white);
+    border-left: 5px solid var(--hp-green);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 2.5rem 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.hp-hero h1 {
+    font-size: clamp(1.75rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--hp-navy);
+    line-height: 1.2;
+    margin-bottom: .75rem;
+}
+
+.hp-hero p {
+    color: var(--hp-muted);
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Botones ---- */
+.btn-hp-primary {
+    background-color: var(--hp-green);
+    color: #fff;
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .65rem 1.6rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-hp-primary:hover {
+    background-color: var(--hp-green-dark);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(74,140,111,.30);
+}
+
+/* ---- Tarjetas de servicios ---- */
+.hp-service-card {
+    background: var(--hp-white);
+    border-radius: var(--radius);
+    border: 1px solid var(--hp-border);
+    border-left: 4px solid var(--hp-green);
+    box-shadow: var(--shadow-sm);
+    padding: 1.6rem 1.5rem;
+    height: 100%;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.hp-service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.hp-service-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    margin-bottom: .5rem;
+}
+
+.hp-service-card p {
+    font-size: .93rem;
+    color: var(--hp-muted);
+    margin: 0;
+}
+
+/* ---- Tarjetas de info (horarios / contacto) ---- */
+.hp-info-card {
+    background: var(--hp-white);
+    border-radius: var(--radius);
+    border: 1px solid var(--hp-border);
+    box-shadow: var(--shadow-sm);
+    padding: 1.6rem 1.5rem;
+    height: 100%;
+}
+
+.hp-info-card.hp-info-card--accent-navy {
+    border-top: 4px solid var(--hp-navy);
+}
+
+.hp-info-card.hp-info-card--accent-green {
+    border-top: 4px solid var(--hp-green);
+}
+
+.hp-info-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    margin-bottom: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-size: .82rem;
+}
+
+.hp-info-card ul {
+    padding-left: 1.1rem;
+    margin: 0;
+}
+
+.hp-info-card ul li {
+    font-size: .93rem;
+    color: var(--hp-ink);
+    margin-bottom: .3rem;
+}
+
+.hp-info-card p {
+    font-size: .93rem;
+    color: var(--hp-ink);
+    margin-bottom: .3rem;
+}
+
+/* ---- Sección "¿Cómo funciona?" ---- */
+.hp-steps {
+    background: var(--hp-white);
+    border-radius: var(--radius);
+    border: 1px solid var(--hp-border);
+    box-shadow: var(--shadow-sm);
+    padding: 2rem 2rem;
+}
+
+.hp-steps h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-size: .82rem;
+    margin-bottom: 1.2rem;
+}
+
+.hp-steps ol {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.hp-steps ol li {
+    font-size: .95rem;
+    color: var(--hp-ink);
+    margin-bottom: .5rem;
+    padding-left: .25rem;
+}
+
+/* ---- Alertas ---- */
+.alert {
+    border-radius: var(--radius);
+    font-size: .94rem;
+}
+
+/* ---- Sección label (eyebrow) ---- */
+.hp-section-label {
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--hp-green);
+    margin-bottom: .5rem;
+    display: block;
+}
+
+/* ---- Footer ---- */
+footer {
+    background-color: var(--hp-navy) !important;
+    border-top: none !important;
+}
+
+footer .text-muted {
+    color: rgba(255,255,255,.55) !important;
+    font-size: .85rem;
+}
+
+/* ---- Utilidades ---- */
+.text-hp-navy  { color: var(--hp-navy); }
+.text-hp-green { color: var(--hp-green); }
+.bg-hp-sand    { background-color: var(--hp-sand); }

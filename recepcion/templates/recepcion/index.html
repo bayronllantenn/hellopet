@@ -1,0 +1,45 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Panel Recepcionista | HelloPet{% endblock %}
+
+{% block content %}
+<div class="hp-page-header mb-4">
+    <div>
+        <span class="hp-section-label">Panel de control</span>
+        <h2 class="hp-page-title">Recepcionista</h2>
+    </div>
+</div>
+<div class="mb-5">
+    <span class="hp-section-label mb-3 d-block">
+        <i class="bi bi-lightning-charge-fill me-1"></i>
+        Accesos rápidos
+    </span>
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+            <a href="{% url 'solicitud_citas_r' %}" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 quick-card quick-card-success">
+                    <div class="card-body text-center py-4">
+                        <i class="bi bi-calendar-check fs-1 mb-3"></i>
+                        <h6 class="mb-1">Gestionar solicitudes</h6>
+                        <small>Revisar y aprobar citas</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+         <div class="col-md-4">
+            <a href="{% url 'listar_ficha_r' %}?estado=Pendiente" class="text-decoration-none">
+                <div class="card shadow-sm border-0 h-100 quick-card quick-card-warning">
+                    <div class="card-body text-center py-4">
+                        <i class="bi bi-hourglass-split fs-1 mb-3"></i>
+                        <h6 class="mb-1">Listar Fichas</h6>
+                        <small>Revisa las fichas de los pacientes</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

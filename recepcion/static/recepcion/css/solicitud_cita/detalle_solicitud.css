@@ -1,0 +1,109 @@
+.detalle-cita-page {
+    max-width: 1100px;
+}
+
+.detalle-cita-back {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 22px;
+}
+
+.detalle-cita-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.detalle-cita-header h2 {
+    margin: 0;
+    color: #1f3f5b;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.detalle-cita-header p {
+    margin: 6px 0 0;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.detalle-cita-estado {
+    padding: 7px 14px;
+    border-radius: 0;
+    background-color: #eaf3ff;
+    color: #1f3f5b;
+    font-size: 0.85rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.detalle-cita-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+.detalle-cita-card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(31, 63, 91, 0.07);
+}
+
+.detalle-cita-card-header {
+    background-color: #1f3f5b;
+    color: #ffffff;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.detalle-cita-card-body {
+    padding: 20px 22px;
+}
+
+.detalle-cita-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.detalle-cita-item:last-child {
+    border-bottom: none;
+}
+
+.detalle-cita-item span {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.detalle-cita-item strong {
+    color: #243447;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: right;
+    word-break: break-word;
+}
+
+.detalle-cita-observacion-card {
+    margin-top: 4px;
+}
+
+.detalle-cita-observacion {
+    padding: 20px 22px;
+    min-height: 95px;
+    background-color: #f8fafc;
+    color: #343a40;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-radius: 0;
+}

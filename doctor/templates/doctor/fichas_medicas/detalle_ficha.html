@@ -1,0 +1,196 @@
+{% extends 'veterinaria/base.html' %}
+{% load static %}
+
+{% block title %}Detalle Ficha Médica{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'recepcion/css/ficha_medica/detalle_ficha_medica.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="ficha-detalle-page">
+    <div class="ficha-detalle-header">
+        <div>
+            <h2>Ficha Médica #{{ ficha.id }}</h2>
+            <p>Detalle completo de la atención veterinaria.</p>
+        </div>
+    </div>
+
+    <div class="ficha-detalle-main">
+
+        <div class="ficha-detalle-top">
+            <div>
+                <h4>{{ ficha.solicitud.nombre_mascota }}</h4>
+                <p>
+                    Propietario: {{ ficha.solicitud.nombre }} {{ ficha.solicitud.apellido }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-lg-6">
+                <div class="ficha-detalle-box">
+                    <h5>Datos del propietario</h5>
+
+                    <div class="ficha-detalle-item">
+                        <span>Nombre</span>
+                        <strong>{{ ficha.solicitud.nombre }} {{ ficha.solicitud.apellido }}</strong>
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Teléfono</span>
+                        <strong>{{ ficha.solicitud.telefono }}</strong>
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Email</span>
+                        {% if ficha.solicitud.email %}
+                            <strong>{{ ficha.solicitud.email }}</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin registrar</strong>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="ficha-detalle-box">
+                    <h5>Datos del paciente</h5>
+
+                    <div class="ficha-detalle-item">
+                        <span>Nombre mascota</span>
+                        <strong>{{ ficha.solicitud.nombre_mascota }}</strong>
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Especie</span>
+                        <strong>{{ ficha.especie }}</strong>
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Raza</span>
+                        {% if ficha.raza %}
+                            <strong>{{ ficha.raza }}</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin registrar</strong>
+                        {% endif %}
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Sexo</span>
+                        {% if ficha.sexo %}
+                            <strong>{{ ficha.sexo }}</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin registrar</strong>
+                        {% endif %}
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Edad</span>
+                        {% if ficha.edad_mascota %}
+                            <strong>{{ ficha.edad_mascota }}</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin registrar</strong>
+                        {% endif %}
+                    </div>
+
+                    <div class="ficha-detalle-item">
+                        <span>Peso</span>
+                        {% if ficha.peso %}
+                            <strong>{{ ficha.peso }} kg</strong>
+                        {% else %}
+                            <strong class="text-muted">Sin registrar</strong>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="ficha-detalle-box">
+                    <h5>Datos de la cita</h5>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="ficha-detalle-item">
+                                <span>Tipo de consulta</span>
+                                <strong>{{ ficha.solicitud.tipo_consulta.nombre }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="ficha-detalle-item">
+                                <span>Fecha cita</span>
+                                <strong>{{ ficha.solicitud.fecha_hora|date:"d/m/Y H:i" }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="ficha-detalle-item">
+                                <span>Fecha atención</span>
+                                <strong>{{ ficha.fecha_atencion|date:"d/m/Y H:i" }}</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="ficha-detalle-item">
+                                <span>Veterinario</span>
+                                {% if ficha.solicitud.veterinario %}
+                                    <strong>{{ ficha.solicitud.veterinario.first_name }}</strong>
+                                {% else %}
+                                    <strong class="text-muted">Sin asignar</strong>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="ficha-detalle-box">
+                    <h5>Datos médicos</h5>
+
+                    <div class="ficha-medica-section">
+                        <span>Motivo consulta</span>
+                        <p>{{ ficha.motivo_consulta }}</p>
+                    </div>
+
+                    <div class="ficha-medica-section">
+                        <span>Diagnóstico</span>
+                        <p>{{ ficha.diagnostico }}</p>
+                    </div>
+
+                    <div class="ficha-medica-section">
+                        <span>Tratamiento</span>
+                        <p>{{ ficha.tratamiento }}</p>
+                    </div>
+
+                    <div class="ficha-medica-section">
+                        <span>Observaciones</span>
+                        {% if ficha.observaciones %}
+                            <p>{{ ficha.observaciones }}</p>
+                        {% else %}
+                            <p class="text-muted">Sin observaciones</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ficha-detalle-actions">
+            <a href="{% url 'listar_ficha' %}" class="ficha-btn ficha-btn-light">
+                Volver
+            </a>
+
+            <a href="{% url 'editar_ficha' ficha.id %}" class="ficha-btn ficha-btn-dark">
+                Editar ficha
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
