@@ -6,6 +6,4 @@ media/
 venv/
 .venv/
 env/
-.env/
 staticfiles/
-.DS_Store
