@@ -74,7 +74,6 @@ def listar_ficha(request):
     return render(request, 'recepcion/fichas_medicas/listar_ficha.html', {'fichas': fichas})
 
 @login_required
-
 def editar_ficha(request, id):
     ficha = get_object_or_404(FichaMedica, id=id)
     solicitud = ficha.solicitud

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cita confirmada</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333;">
+    <h2 style="color: #198754;">Cita confirmada - HelloPet</h2>
+
+    <p>Hola {{ solicitud.nombre }} {{ solicitud.apellido }},</p>
+
+    <p>
+        Tu cita para <strong>{{ solicitud.nombre_mascota }}</strong>
+        ha sido confirmada correctamente.
+    </p>
+
+    <h3>Detalle de la cita</h3>
+
+    <ul>
+        <li><strong>Mascota:</strong> {{ solicitud.nombre_mascota }}</li>
+        <li><strong>Tipo de consulta:</strong> {{ solicitud.tipo_consulta.nombre }}</li>
+        <li><strong>Fecha:</strong> {{ solicitud.fecha_hora|date:"d-m-Y" }}</li>
+        <li><strong>Hora:</strong> {{ solicitud.fecha_hora|date:"H:i" }}</li>
+        <li><strong>Estado:</strong> {{ solicitud.estado }}</li>
+        <li><strong>Estado de pago:</strong> {{ solicitud.estado_pago }}</li>
+        <li><strong>Monto pagado:</strong> ${{ solicitud.monto_pagado }}</li>
+    </ul>
+
+    <p>Te recomendamos llegar 10 minutos antes de la atención.</p>
+
+    <p>
+        Saludos,<br>
+        <strong>Equipo HelloPet</strong>
+    </p>
+</body>
+</html>

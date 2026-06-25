@@ -6,7 +6,6 @@ from .models import Perfil
 
 
 def login_user(request):
-
     if request.user.is_authenticated:
         return redirect('index')
     if request.method == 'POST':

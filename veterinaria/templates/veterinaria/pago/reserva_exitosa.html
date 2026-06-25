@@ -1,0 +1,88 @@
+```html
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Reserva Exitosa | HelloPet{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow border-0 rounded-4">
+        <div class="card-body p-5 text-center">
+
+            <div class="mb-4">
+                <h2 class="text-success mb-2">Reserva confirmada</h2>
+                <p class="text-muted mb-0">
+                    Tu cita fue pagada y reservada correctamente.
+                </p>
+            </div>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+
+                    <div class="border rounded-4 p-4 text-start bg-light">
+
+                        <p class="mb-2">
+                            <strong>Cliente:</strong>
+                            {{ solicitud.nombre }} {{ solicitud.apellido }}
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>Mascota:</strong>
+                            {{ solicitud.nombre_mascota }}
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>Tipo de consulta:</strong>
+                            {{ solicitud.tipo_consulta.nombre }}
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>Fecha y hora:</strong>
+                            {{ solicitud.fecha_hora|date:"d/m/Y H:i" }}
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>Estado cita:</strong>
+                            <span class="badge rounded-pill bg-success">
+                                {{ solicitud.estado }}
+                            </span>
+                        </p>
+
+                        <p class="mb-2">
+                            <strong>Estado pago:</strong>
+                            <span class="badge rounded-pill bg-success">
+                                {{ solicitud.estado_pago }}
+                            </span>
+                        </p>
+
+                        {% if solicitud.monto_pagado %}
+                        <p class="mb-2">
+                            <strong>Monto pagado:</strong>
+                            ${{ solicitud.monto_pagado }}
+                        </p>
+                        {% endif %}
+
+                        {% if solicitud.fecha_pago %}
+                        <p class="mb-0">
+                            <strong>Fecha de pago:</strong>
+                            {{ solicitud.fecha_pago|date:"d/m/Y H:i" }}
+                        </p>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+
+            <a href="{% url 'index' %}" class="btn btn-dark">
+                Volver al inicio
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+```

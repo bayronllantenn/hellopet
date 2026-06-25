@@ -1,0 +1,27 @@
+{% extends 'veterinaria/base.html' %}
+
+{% block title %}Redirigiendo a Webpay{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 text-center">
+    <div class="card shadow border-0">
+        <div class="card-body p-4">
+            <h2 class="mb-3">Redirigiendo a Webpay</h2>
+            <p class="text-muted">Espera un momento, serás enviado al portal de pago.</p>
+
+            <form id="webpay-form" method="POST" action="{{ url }}">
+                <input type="hidden" name="token_ws" value="{{ token }}">
+                <button type="submit" class="btn btn-dark">
+                    Ir a pagar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('webpay-form').submit();
+</script>
+
+{% endblock %}

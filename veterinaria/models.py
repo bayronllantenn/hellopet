@@ -17,7 +17,18 @@ class SolicitudCita(models.Model):
         ('Cancelada', 'Cancelada'),
         ('Finalizado', 'Finalizado'),
     ]
+    ESTADOS_PAGO = [
+    ('Pendiente', 'Pendiente'),
+    ('Pagado', 'Pagado'),
+    ('Rechazado', 'Rechazado'),
+    ('Anulado', 'Anulado'),
+]   
+    estado_pago = models.CharField(max_length=20,choices=ESTADOS_PAGO,default='Pendiente')
+    webpay_token = models.CharField(max_length=255, blank=True, null=True)
+    webpay_orden = models.CharField(max_length=100, blank=True, null=True)
 
+    monto_pagado = models.PositiveIntegerField(null=True, blank=True)
+    fecha_pago = models.DateTimeField(null=True, blank=True)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
 
