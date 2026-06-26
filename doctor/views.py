@@ -29,7 +29,6 @@ def editar_ficha_doctor(request, id):
     ficha = get_object_or_404(FichaMedica,id=id,solicitud__veterinario=request.user)
     if request.method == 'POST':
         form = FichaMedicaForm(request.POST, instance=ficha)
-
         if form.is_valid():
             form.save()
             messages.success(request, 'Ficha medica actualizada correctamente.')
