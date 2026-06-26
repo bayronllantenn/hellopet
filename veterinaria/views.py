@@ -70,16 +70,21 @@ def iniciar_pago_webpay(request, id):
 
 
 def retorno_webpay(request):
+    # Webpay devuelve un token llamado "token_ws" despues del pago.
     token = request.GET.get('token_ws') or request.POST.get('token_ws')
+    
     if not token:
         messages.error(request, 'No se recibió respuesta de Webpay.')
         return redirect('reserva_fallida')
+    # a que cita correspond el pago
     solicitud = SolicitudCita.objects.filter(webpay_token=token).first()
     if not solicitud:
         messages.error(request, 'No se encontró la solicitud asociada al pago.')
         return redirect('reserva_fallida')
     try:
         tx = get_webpay_transaction()
+        # Aqui se confirma el pago con Webpay.
+        # commit(token) le pregunta a Webpay si el pago fue aprobado o rechazado.
         response = tx.commit(token)
         if response.get('status') == 'AUTHORIZED':
             ya_estaba_pagado = solicitud.estado_pago == 'Pagado'
@@ -90,6 +95,7 @@ def retorno_webpay(request):
             solicitud.save()
             if not ya_estaba_pagado and solicitud.email:
                 try:
+                    #correo 
                     html_content = render_to_string('correo/cita_confirmada.html', {'solicitud': solicitud})
                     text_content = strip_tags(html_content)
                     email = EmailMultiAlternatives(subject='Cita confirmada - HelloPet', body=text_content, from_email=settings.DEFAULT_FROM_EMAIL, to=[solicitud.email])

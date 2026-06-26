@@ -38,7 +38,6 @@ class SolicitudCita(models.Model):
     nombre_mascota = models.CharField(max_length=100)
 
     tipo_consulta = models.ForeignKey(TipoConsulta,on_delete=models.CASCADE, related_name='solicitudes')
-
     veterinario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='citas_asignadas')
 
     #fecha para la cita

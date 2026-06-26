@@ -9,8 +9,10 @@ from veterinaria.models import SolicitudCita, FichaMedica
 def index_recepcion(request):
     return render(request, 'recepcion/index.html')
 
+
 @login_required
 # SOLICITUDES DE CITA , DETALLE SOLICITUD , EDITAR SOLICITUD
+
 def solicitud_citas(request):
     estado = request.GET.get('estado')
     orden = request.GET.get('orden')
@@ -43,6 +45,7 @@ def editar_solicitud(request, id):
 
 
 # CREAR FICHA MEDICA , VER FICHA MEDICA , LISTAR FICHAS MEDICAS , EDITAR FICHA MEDICA
+
 @login_required
 def crear_ficha(request, id):
     solicitud = get_object_or_404(SolicitudCita, id=id)
